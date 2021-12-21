@@ -14,5 +14,6 @@ const firebaseConfig = {
 
 console.log(process.env.REACT_APP_FIREBASE_API_KEY);
 console.log(process.env.REACT_APP_FIREBASE_DB_URL);
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 export default firebaseApp;
