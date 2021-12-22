@@ -8,4 +8,6 @@
   padding: 0.5em;
   flex-basis: 1 1 50%;
   font-size: 0.8em;
+  border: 0;
+  outline: 0;
 }
