@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useRef } from 'react/cjs/react.development';
+import { memo, useRef } from 'react/cjs/react.development';
 import styles from './image_file_input_button.module.css';
 
-const ImageFileInputButton = ({ imageUploader, name, onFileChange }) => {
+const ImageFileInputButton = memo(({ imageUploader, name, onFileChange }) => {
   const [loading, setLoading] = useState(false); // uploading spinner
   const inputRef = useRef();
   const onButtonClick = (event) => {
@@ -43,5 +43,6 @@ const ImageFileInputButton = ({ imageUploader, name, onFileChange }) => {
       {loading && <div className={styles.loading}></div>}
     </div>
   );
-};
+});
+
 export default ImageFileInputButton;

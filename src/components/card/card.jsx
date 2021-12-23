@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './card.module.css';
 
 const DEFAULT_IMAGE = 'images/default_logo.png';
 
-const Card = ({ card }) => {
-  //dest
+const Card = memo(({ card }) => {
+  //destructor
   const { name, company, title, email, message, theme, fileURL } = card;
   const url = fileURL || DEFAULT_IMAGE;
   return (
@@ -19,8 +19,7 @@ const Card = ({ card }) => {
       </div>
     </li>
   );
-};
-
+});
 function getStyles(theme) {
   switch (theme) {
     case 'dark':
