@@ -27,22 +27,21 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   // id 별로 작성하기  - login
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {
         setUserId(user.uid);
-        console.log(userId);
       } else {
         history.push('/');
       }
     });
-  });
+  }, [authService, userId, history]); // mount: whenever auth changes, it will be changed
 
   const createOrupdateCard = (card) => {
-    //js - object feature - for good performance
+    //JS - object feature - for good performance
     // OLDWAY: const updated = { ...cards };
     // updated[card.id] = card;
     //setCards(updated);
